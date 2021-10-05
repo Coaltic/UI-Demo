@@ -13,7 +13,7 @@ public class Controller : MonoBehaviour
     //Urg that's ugly, maybe find a better way
     public static Controller Instance { get; protected set; }
 
-    public Camera MainCamera;
+    //public Camera MainCamera;
 
 
     public Transform CameraPosition;
@@ -63,9 +63,9 @@ public class Controller : MonoBehaviour
         m_IsPaused = false;
         m_Grounded = true;
 
-        MainCamera.transform.SetParent(CameraPosition, false);
-        MainCamera.transform.localPosition = Vector3.zero;
-        MainCamera.transform.localRotation = Quaternion.identity;
+        //MainCamera.transform.SetParent(CameraPosition, false);
+        //MainCamera.transform.localPosition = Vector3.zero;
+        //MainCamera.transform.localRotation = Quaternion.identity;
         m_CharacterController = GetComponent<CharacterController>();
 
 
