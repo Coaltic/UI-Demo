@@ -4144,3 +4144,4 @@ Received Import Request.
 Start importing Assets/Chest.mat using Guid(673b40e4b5ead2d41a1c4f6d37998440) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c24cabc8868e32b10558441078091b7b') in 0.093663 seconds 
   Import took 0.096421 seconds .
 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
