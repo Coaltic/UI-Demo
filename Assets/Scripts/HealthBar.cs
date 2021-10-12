@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int health;
+    public Character character;
+
     public GameObject healthColour;
-    //public GameObject miniHealthColour;
     public GameObject healthBar;
-    //public GameObject miniHealthBar;
 
     void Start()
     {
-        health = 100;
+        character.health = 100;
         healthColour.GetComponent<Image>().color = new Color32(74, 227, 14, 255);
     }
 
+    // Update is called once per frame
     void Update()
     {
         UpdateHealth();
@@ -25,33 +24,19 @@ public class Player : MonoBehaviour
 
     void UpdateHealth()
     {
-        healthBar.GetComponent<Slider>().value = health;
+        healthBar.GetComponent<Slider>().value = character.health;
         //miniHealthBar.GetComponent<Slider>().value = health;
 
-        if (health < 80 && health > 60)
+        if (character.health < 80 && character.health > 60)
             healthColour.GetComponent<Image>().color = new Color32(167, 227, 16, 255);
 
-        if (health < 60 && health > 40)
+        if (character.health < 60 && character.health > 40)
             healthColour.GetComponent<Image>().color = new Color32(227, 176, 9, 255);
 
-        if (health < 40 && health > 20)
+        if (character.health < 40 && character.health > 20)
             healthColour.GetComponent<Image>().color = new Color32(240, 86, 48, 255);
 
-        if (health < 20)
+        if (character.health < 20)
             healthColour.GetComponent<Image>().color = new Color32(204, 40, 0, 255);
     }
-
-    public void Heal()
-    {
-        health = health + 10;
-        UpdateHealth();
-    }
-
-    public void Damage()
-    {
-        health = health - 10;
-        UpdateHealth();
-    }
-
 }
-

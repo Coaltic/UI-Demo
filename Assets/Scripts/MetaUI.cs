@@ -7,7 +7,7 @@ public class MetaUI : MonoBehaviour
 {
     //public GameObject canvas;
 
-    public Player player;
+    public Character player;
     public Image img;
     public float timerMax = 2.0f;
     public bool inWater = false;
@@ -26,15 +26,18 @@ public class MetaUI : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (inWater)
+        if (other.tag == "Player")
         {
-            Debug.Log("timer started");
-            timerMax -= Time.deltaTime;
-
-            if (timerMax <= 0.0f)
+            if (inWater)
             {
-                player.health -= 10;
-                timerMax = 2.0f;
+                Debug.Log("timer started");
+                timerMax -= Time.deltaTime;
+
+                if (timerMax <= 0.0f)
+                {
+                    if (player.health <= 100) { player.health += 10; }
+                    timerMax = 2.0f;
+                }
             }
         }
     }
@@ -43,14 +46,20 @@ public class MetaUI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        inWater = true;
-        StartCoroutine(FadeImage(false));
+        if (other.tag == "Player")
+        {
+            inWater = true;
+            StartCoroutine(FadeImage(false));
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        inWater = false;
-        StartCoroutine(FadeImage(true));
+        if (other.tag == "Player")
+        {
+            inWater = false;
+            StartCoroutine(FadeImage(true));
+        }
     }
 
     IEnumerator FadeImage(bool fadeAway)
