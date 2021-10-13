@@ -12,7 +12,7 @@ public class HealthBar : MonoBehaviour
 
     void Start()
     {
-        character.health = 100;
+        
         healthColour.GetComponent<Image>().color = new Color32(74, 227, 14, 255);
     }
 

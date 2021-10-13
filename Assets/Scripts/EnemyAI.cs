@@ -46,6 +46,7 @@ public class EnemyAI : MonoBehaviour
                 enemy.gameObject.SetActive(false);
                 enemy.transform.position = respawnLocation.transform.position;
                 enemy.health = 100;
+                player.experience += 10;
                 enemy.gameObject.SetActive(true);
 
             }

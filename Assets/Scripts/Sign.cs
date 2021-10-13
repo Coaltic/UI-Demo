@@ -10,6 +10,7 @@ public class Sign : MonoBehaviour
 
     public GameObject signText;
     public GameObject closeText;
+    public GameObject HUD;
 
     public GameObject player;
 
@@ -32,6 +33,7 @@ public class Sign : MonoBehaviour
 
                 signCamera.SetActive(true);
                 mainCamera.SetActive(false);
+                HUD.SetActive(false);
 
                 player.SetActive(false);
 
@@ -45,6 +47,7 @@ public class Sign : MonoBehaviour
 
                 signCamera.SetActive(false);
                 mainCamera.SetActive(true);
+                HUD.SetActive(true);
 
                 player.SetActive(true);
             }
